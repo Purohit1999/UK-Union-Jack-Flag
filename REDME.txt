@@ -1,0 +1,40 @@
+HTML : 
+
+This is the basic HTML structure. 
+The <div id="flag"></div> is where our flag will be displayed.
+
+CSS : 
+
+Sets a dark background (#222, which is a dark gray).
+Uses flexbox to center the content both horizontally and vertically.
+Sets the body height to 100% of the viewport height.
+Removes default margin and hides overflow.
+
+Sets the flag dimensions.
+Uses an inline SVG as the background image (the Union Jack design).
+background-size: cover ensures the SVG fills the entire div.
+transform-style: preserve-3d allows 3D transformations.
+Applies a 'wave' animation (which isn't defined in this CSS, but is simulated in JavaScript).
+
+The SVG:
+The background image is an inline SVG that draws the Union Jack flag. It uses paths and clip paths to create the flag's design with the correct colors (#012169 for navy blue, #fff for white, and #C8102E for red).
+
+JavaScript Animation:
+
+Selects the flag element.
+Initializes a time variable for animation.
+The animate function:
+
+Increments time by 0.05 each frame.
+Calculates a wave value using sine function for smooth oscillation.
+Applies a 3D rotation to the flag using rotateX and rotateY.
+The X rotation is based on the full wave value, while Y rotation is half of that.
+requestAnimationFrame calls the function again, creating a loop.
+
+
+animate() starts the animation.
+
+This code creates a wavering effect by continuously changing the rotation of the flag div. The sine function creates a smooth back-and-forth motion, and using different values for X and Y rotation gives a more complex, realistic movement.
+The result is a large Union Jack flag centered on a dark background, wavering as if it's blowing in the wind.
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wavering Union Jack</title>
+    <style>
+      body {
+        background-color: #222;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+      }
+      #flag {
+        width: 450px; /* Increased from 300px */
+        height: 225px; /* Increased from 150px */
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="%23012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="%23fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(%23t)" stroke="%23C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="%23fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="%23C8102E" stroke-width="6"/></svg>');
+        background-size: cover;
+        transform-style: preserve-3d;
+        animation: wave 5s infinite linear;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="flag"></div>
+
+    <script>
+      const flag = document.getElementById("flag");
+      let time = 0;
+
+      function animate() {
+        time += 0.05;
+        const wave = Math.sin(time) * 10;
+        flag.style.transform = `rotateX(${wave}deg) rotateY(${wave / 2}deg)`;
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    </script>
+  </body>
+</html>
